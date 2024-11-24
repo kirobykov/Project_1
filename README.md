@@ -12,6 +12,10 @@ Mood Tracker - это пакет, который позволяет пользо
 ```bash
 pip install -r requirements.txt
 
+from mood_tracker.tracker import MoodTracker
+from mood_tracker.statistics import MoodStatistics
+from mood_tracker.visualization import plot_mood_trends
+
 # Инициализация трекера настроений
 tracker = MoodTracker()
 tracker.add_mood("2023-10-01", "happy")
