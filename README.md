@@ -6,15 +6,22 @@
 ## Описание
 Mood Tracker - это пакет, который позволяет пользователям отслеживать свое настроение в течение нескольких дней. Пользователи могут вводить свое настроение и получать статистику и визуализацию данных.
 
-## Примеры использования
-
-```python
 from mood_tracker.tracker import MoodTracker
+from mood_tracker.statistics import MoodStatistics
+from mood_tracker.visualization import plot_mood_trends
 
+# Инициализация трекера настроений
 tracker = MoodTracker()
 tracker.add_mood("2023-10-01", "happy")
 tracker.add_mood("2023-10-02", "sad")
 tracker.add_mood("2023-10-03", "neutral")
 
+# Получение настроения
 print(tracker.get_mood("2023-10-01"))  # Вывод: happy
-print(tracker.get_average_mood())  # Вывод: Статистика настроения
+
+# Получение статистики настроений
+stats = MoodStatistics(tracker.moods)
+print(stats.get_average_mood())  # Вывод: Среднее настроение
+
+# Визуализация настроений
+plot_mood_trends(tracker.moods)
